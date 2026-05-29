@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B7Store - Criar Conta</title>
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/newsletter.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-50">
+    <section class="header-warning">
+        <div class="mobile"><span>FRETE GRÁTIS</span> para todo o Nordeste!</div>
+        <div class="desktop"><span>FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de R$ 199,00.
+            <span>APROVEITA!</span>
+        </div>
+    </section>
+    
+    <header>
+        <div class="header-main">
+            <div class="header-left">
+                <a class="logo" href="index.html">
+                    <img src="assets/images/ui/logo-black.png" alt="B7Store" />
+                </a>
+                <ul>
+                    <li><a href="produtos.html">Camisetas</a></li>
+                    <li><a href="produtos.html">Kits B7Web</a></li>
+                    <li><a href="produtos.html">Acessórios</a></li>
+                    <li><a href="produtos.html">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="header-right">
+                <input class="search" type="text" placeholder="Pesquisa" />
+                <a href="login.html" class="btn-icon">
+                    <img src="assets/images/ui/user-line.png" alt="" />
+                </a>
+                <a href="checkout.html" class="btn-icon">
+                    <img src="assets/images/ui/shopping-bag-4-line.png" alt="" />
+                </a>
+                <a class="btn-icon menu-burger">
+                    <img class="off" src="assets/images/ui/menu-line.png" alt="" />
+                    <img class="on" src="assets/images/ui/menu-line-white.png" alt="" />
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex min-h-[70vh] items-center justify-center px-4 py-16">
+        <div class="w-full max-w-xl space-y-10 rounded-2xl bg-white p-10 sm:p-12 shadow-2xl border border-gray-100">
+            <div class="text-center">
+                <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">Criar sua conta</h2>
+                <p class="mt-3 text-base text-gray-500">Cadastre-se para gerenciar seus pedidos na B7Store!</p>
+            </div>
+
+            <div id="error-box" class="hidden rounded-lg bg-red-50 p-5 border border-red-200">
+                <div class="flex">
+                    <div id="error-message" class="text-sm font-semibold text-red-800">
+                        Houve um erro ao criar a conta. Tente novamente.
+                    </div>
+                </div>
+            </div>
+
+            <form id="cadastroForm" class="mt-10 space-y-8">
+                <div class="space-y-6 rounded-md">
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">E-mail</label>
+                        <input id="email" name="email" type="email" required 
+                            class="relative block w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-400 focus:z-10 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base" 
+                            placeholder="seu-email@exemplo.com">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-bold text-gray-700 mb-2">Senha (mínimo 6 caracteres)</label>
+                        <input id="password" name="password" type="password" required minlength="6"
+                            class="relative block w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-400 focus:z-10 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base" 
+                            placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div class="text-sm sm:text-base text-center">
+                    <span class="text-gray-600">Já tem uma conta?</span>
+                    <a href="login.html" class="font-semibold text-black hover:underline ml-1">Fazer Login</a>
+                </div>
+
+                <div>
+                    <button type="submit" 
+                        class="group relative flex w-full justify-center rounded-lg bg-black px-5 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-gray-800 focus:outline-hidden focus:ring-2 focus:ring-black focus:ring-offset-2 cursor-pointer shadow-md">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <section class="newsletter">
+        <div class="news-area">
+            <div class="news-left">
+                <img src="assets/images/ui/mail-send-line.png" alt="" />
+                <div>
+                    <h3>Fique por dentro das promoções!</h3>
+                    <p>Coloque seu e-mail e seja o primeiro a saber</p>
+                </div>
+            </div>
+            <div class="news-right">
+                <input class="input" type="text" placeholder="Qual seu e-mail?" />
+                <button class="button">Enviar</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-menu">
+            <a class="logo" href="index.html">
+                <img src="assets/images/ui/logo-white.png" alt="B7Store" />
+            </a>
+            <ul>
+                <li><a href="produtos.html">Camisetas</a></li>
+                <li><a href="produtos.html">Kits B7Web</a></li>
+                <li><a href="produtos.html">Acessórios</a></li>
+                <li><a href="produtos.html">Eletrônicos</a></li>
+            </ul>
+        </div>
+        <div class="footer-contacts">
+            <div class="contacts">
+                <div class="footer-title">Precisa de ajuda?</div>
+                <div class="footer-icons">
+                    <a class="btn-icon-text" href="">
+                        <img src="assets/images/ui/mail-line.png" alt="" />
+                        <span>b7store@email.com</span>
+                    </a>
+                    <a class="btn-icon-text" href="">
+                        <img src="assets/images/ui/phone-line.png" alt="" />
+                        <span>(00) 00000-0000</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="assets/js/header.js"></script>
+    <script type="text/javascript" src="assets/js/footer.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="text/javascript" src="assets/js/cadastro.js"></script>
+</body>
+
+</html>

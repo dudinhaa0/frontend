@@ -9,17 +9,141 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/newsletter.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/produtos.css" />
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .login-wrapper {
+            padding: 60px 15px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background-color: #fcfcfc;
+            min-height: 60vh;
+        }
+        .login-container {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            box-sizing: border-box;
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .login-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .login-subtitle {
+            font-size: 14px;
+            color: #777777;
+        }
+        .error-box {
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .error-box.hidden {
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #111111;
+            background-color: #fafafa;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #111111;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+        }
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .remember-me-label {
+            display: flex;
+            align-items: center;
+            color: #555555;
+            cursor: pointer;
+            user-select: none;
+        }
+        .remember-me-checkbox {
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            accent-color: #111111;
+            cursor: pointer;
+        }
+        .forgot-password {
+            color: #555555;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            color: #111111;
+            text-decoration: underline;
+        }
+        .btn-login {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #111111;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .btn-login:hover {
+            background-color: #2c2c2c;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50">
+<body>
     <section class="header-warning">
         <div class="mobile"><span>FRETE GRÁTIS</span> para todo o Nordeste!</div>
         <div class="desktop"><span>FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de R$ 199,00.
             <span>APROVEITA!</span>
         </div>
     </section>
+
     <header>
         <div class="header-main">
             <div class="header-left">
@@ -31,6 +155,7 @@
                     <li><a href="produtos.html">Kits B7Web</a></li>
                     <li><a href="produtos.html">Acessórios</a></li>
                     <li><a href="produtos.html">Eletrônicos</a></li>
+                    <li><a href="cadastrar-produto.html" style="color: #ff4757; font-weight: bold;">+ Cadastrar Produto</a></li>
                 </ul>
             </div>
             <div class="header-right">
@@ -47,54 +172,51 @@
                 </a>
             </div>
         </div>
+        <div class="header-menu">
+            <a href="produtos.html">Camisetas</a>
+            <a href="produtos.html">Kits B7Web</a>
+            <a href="produtos.html">Acessórios</a>
+            <a href="produtos.html">Eletrônicos</a>
+            <a href="cadastrar-produto.html" style="color: #ff4757; font-weight: bold;">Cadastrar Produto</a>
+        </div>
+        <div class="header-search">
+            <input class="search" type="text" placeholder="O que você procura?" />
+        </div>
     </header>
 
-    <main class="flex min-h-[70vh] items-center justify-center px-4 py-16">
-        <div class="w-full max-w-xl space-y-10 rounded-2xl bg-white p-10 sm:p-12 shadow-2xl border border-gray-100">
-            <div class="text-center">
-                <h2 class="text-4xl font-extrabold tracking-tight text-gray-900">Acessar sua conta</h2>
-                <p class="mt-3 text-base text-gray-500">Bem-vindo de volta à B7Store!</p>
+    <main class="login-wrapper">
+        <div class="login-container">
+            <div class="login-header">
+                <h1 class="login-title">Acessar sua conta</h1>
+                <p class="login-subtitle">Bem-vindo de volta à B7Store!</p>
             </div>
 
-            <div id="error-box" class="hidden rounded-lg bg-red-50 p-5 border border-red-200">
-                <div class="flex">
-                    <div class="text-sm font-semibold text-red-800">
-                        E-mail ou senha incorretos. Por favor, tente novamente.
-                    </div>
-                </div>
+            <div id="error-box" class="error-box hidden">
+                E-mail ou senha incorretos. Por favor, tente novamente.
             </div>
 
-            <form id="loginForm" class="mt-10 space-y-8">
-                <div class="space-y-6 rounded-md">
-                    <div>
-                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">E-mail</label>
-                        <input id="email" name="email" type="email" required 
-                            class="relative block w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-400 focus:z-10 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base" 
-                            placeholder="seu-email@exemplo.com">
-                    </div>
-                    <div>
-                        <label for="password" class="block text-sm font-bold text-gray-700 mb-2">Senha</label>
-                        <input id="password" name="password" type="password" required 
-                            class="relative block w-full rounded-lg border border-gray-300 px-4 py-4 text-gray-900 placeholder-gray-400 focus:z-10 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base" 
-                            placeholder="••••••••">
-                    </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input id="email" name="email" type="email" required class="form-input" placeholder="seu-email@exemplo.com">
                 </div>
 
-                <div class="flex items-center justify-between text-sm sm:text-base">
-                    <div class="flex items-center">
-                        <input id="remember-me" name="remember-me" type="checkbox" 
-                            class="h-5 w-5 rounded-sm border-gray-300 text-black focus:ring-black accent-black cursor-pointer">
-                        <label for="remember-me" class="ml-2 block text-gray-600 cursor-pointer select-none">Lembrar de mim</label>
-                    </div>
-                    <a href="#" class="font-semibold text-gray-600 hover:text-black hover:underline">Esqueceu a senha?</a>
+                <div class="form-group">
+                    <label for="password" class="form-label">Senha</label>
+                    <input id="password" name="password" type="password" required class="form-input" placeholder="••••••••">
                 </div>
 
-                <div>
-                    <button type="submit" 
-                        class="group relative flex w-full justify-center rounded-lg bg-black px-5 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-gray-800 focus:outline-hidden focus:ring-2 focus:ring-black focus:ring-offset-2 cursor-pointer shadow-md">
-                        Entrar
-                    </button>
+                <div class="form-options">
+                    <label for="remember-me" class="remember-me-label">
+                        <input id="remember-me" name="remember-me" type="checkbox" class="remember-me-checkbox">
+                        Lembrar de mim
+                    </label>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
                 </div>
+
+                <button type="submit" class="btn-login">
+                    Entrar
+                </button>
             </form>
         </div>
     </main>
@@ -141,13 +263,35 @@
                     </a>
                 </div>
             </div>
+            <div class="social">
+                <div class="footer-title">Acompanhe nas redes sociais</div>
+                <div class="footer-icons">
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/instagram-line.png" alt="" />
+                    </a>
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/linkedin-line.png" alt="" />
+                    </a>
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/facebook-line.png" alt="" />
+                    </a>
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/twitter-x-fill.png" alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="phrase">Se você leu isso aqui, saiba que está no caminho certo!<br />Continue estudando e você chegará lá...</div>
+            <div class="btn-icon">
+                <img src="assets/images/ui/arrow-up-line.png" alt="" />
+            </div>
         </div>
     </footer>
 
     <script type="text/javascript" src="assets/js/header.js"></script>
     <script type="text/javascript" src="assets/js/footer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script type="text/javascript" src="assets/js/login.js"></script>
     <script type="text/javascript" src="assets/js/login.js"></script>
 </body>
 

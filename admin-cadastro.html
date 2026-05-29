@@ -9,16 +9,108 @@
     <link rel="stylesheet" href="assets/css/header.css" />
     <link rel="stylesheet" href="assets/css/newsletter.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/produtos.css" />
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .cadastro-container {
+            max-width: 650px;
+            width: 100%;
+            margin: 40px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+        .cadastro-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #111111;
+            margin-bottom: 8px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        .cadastro-subtitle {
+            font-size: 14px;
+            color: #777777;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1px 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #111111;
+            background-color: #fafafa;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #111111;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+        }
+        .form-textarea {
+            resize: none;
+            height: 110px;
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #111111;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .btn-submit:hover {
+            background-color: #2c2c2c;
+        }
+        .btn-submit:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 flex flex-col min-h-screen justify-between">
+<body>
     <section class="header-warning">
         <div class="mobile"><span>FRETE GRÁTIS</span> para todo o Nordeste!</div>
-        <div class="desktop"><span>FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de R$ 199,00. <span>APROVEITA!</span></div>
+        <div class="desktop"><span>FRETE GRÁTIS</span> para todo o Nordeste nas compras acima de R$ 199,00.
+            <span>APROVEITA!</span>
+        </div>
     </section>
-    
+
     <header>
         <div class="header-main">
             <div class="header-left">
@@ -30,38 +122,57 @@
                     <li><a href="produtos.html">Kits B7Web</a></li>
                     <li><a href="produtos.html">Acessórios</a></li>
                     <li><a href="produtos.html">Eletrônicos</a></li>
+                    <li><a href="cadastrar-produto.html" style="color: #ff4757; font-weight: bold;">+ Cadastrar Produto</a></li>
                 </ul>
             </div>
+            <div class="header-right">
+                <input class="search" type="text" placeholder="Pesquisa" />
+                <a href="login.html" class="btn-icon">
+                    <img src="assets/images/ui/user-line.png" alt="" />
+                </a>
+                <a href="checkout.html" class="btn-icon">
+                    <img src="assets/images/ui/shopping-bag-4-line.png" alt="" />
+                </a>
+                <a class="btn-icon menu-burger">
+                    <img class="off" src="assets/images/ui/menu-line.png" alt="" />
+                    <img class="on" src="assets/images/ui/menu-line-white.png" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="header-menu">
+            <a href="produtos.html">Camisetas</a>
+            <a href="produtos.html">Kits B7Web</a>
+            <a href="produtos.html">Acessórios</a>
+            <a href="produtos.html">Eletrônicos</a>
+            <a href="cadastrar-produto.html" style="color: #ff4757; font-weight: bold;">Cadastrar Produto</a>
+        </div>
+        <div class="header-search">
+            <input class="search" type="text" placeholder="O que você procura?" />
         </div>
     </header>
 
-    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl w-full bg-white p-8 rounded-xl shadow-md border border-gray-100">
+    <main style="padding: 20px 15px; display: flex; align-items: center; justify-content: center; background-color: #fcfcfc;">
+        <div class="cadastro-container">
             <div class="mb-8 text-center">
-                <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Cadastrar Novo Produto</h1>
-                <p class="mt-2 text-sm text-gray-500">Preencha as informações abaixo para publicar o produto no Supabase.</p>
+                <h1 class="cadastro-title">Cadastrar Novo Produto</h1>
+                <p class="cadastro-subtitle">Preencha as informações abaixo para publicar o produto diretamente no banco de dados.</p>
             </div>
 
-            <form class="space-y-6">
-                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                    <div class="sm:col-span-2">
-                        <label for="nome" class="block text-sm font-semibold text-gray-700 mb-2">Nome do Produto</label>
-                        <input type="text" id="nome" required
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base"
-                            placeholder="Ex: Camiseta B7Web Fullstack">
+            <form id="formCadastro">
+                <div class="form-group">
+                    <label for="nome" class="form-label">Nome do Produto</label>
+                    <input type="text" id="nome" required class="form-input" placeholder="Ex: Camiseta B7Web Fullstack">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preco" class="form-label">Preço (R$)</label>
+                        <input type="text" id="preco" required class="form-input" placeholder="Ex: 89,90">
                     </div>
 
-                    <div>
-                        <label for="preco" class="block text-sm font-semibold text-gray-700 mb-2">Preço (R$)</label>
-                        <input type="text" id="preco" required
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base"
-                            placeholder="Ex: 89,90">
-                    </div>
-
-                    <div>
-                        <label for="categoria" class="block text-sm font-semibold text-gray-700 mb-2">Categoria</label>
-                        <select id="categoria" required
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base bg-white">
+                    <div class="form-group">
+                        <label for="categoria" class="form-label">Categoria</label>
+                        <select id="categoria" required class="form-select">
                             <option value="">Selecione...</option>
                             <option value="Camisetas">Camisetas</option>
                             <option value="Kits B7Web">Kits B7Web</option>
@@ -69,41 +180,74 @@
                             <option value="Eletrônicos">Eletrônicos</option>
                         </select>
                     </div>
-
-                    <div class="sm:col-span-2">
-                        <label for="imagem_url" class="block text-sm font-semibold text-gray-700 mb-2">URL da Imagem</label>
-                        <input type="url" id="imagem_url"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base"
-                            placeholder="https://exemplo.com/imagem.png">
-                    </div>
-
-                    <div class="sm:col-span-2">
-                        <label for="descricao" class="block text-sm font-semibold text-gray-700 mb-2">Descrição do Produto</label>
-                        <textarea id="descricao" rows="4"
-                            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:outline-hidden focus:ring-2 focus:ring-black text-base resize-none"
-                            placeholder="Escreva detalhes sobre o material, tamanho, etc..."></textarea>
-                    </div>
                 </div>
 
-                <div class="pt-2">
-                    <button type="submit" id="btnSubmit"
-                        class="flex w-full justify-center rounded-lg bg-black px-5 py-4 text-base font-bold text-white transition-colors duration-200 hover:bg-gray-800 focus:outline-hidden focus:ring-2 focus:ring-black cursor-pointer shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed">
-                        Salvar Produto no Supabase
-                    </button>
+                <div class="form-group">
+                    <label for="imagem_url" class="form-label">URL da Imagem</label>
+                    <input type="url" id="imagem_url" class="form-input" placeholder="https://exemplo.com/imagem.png">
                 </div>
+
+                <div class="form-group">
+                    <label for="descricao" class="form-label">Descrição do Produto</label>
+                    <textarea id="descricao" class="form-textarea" placeholder="Escreva detalhes sobre o material, tamanho, diferenciais..."></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmit" class="btn-submit">
+                    Salvar Produto no Supabase
+                </button>
             </form>
         </div>
     </main>
 
     <footer>
         <div class="footer-menu">
-            <a class="logo" href="index.html"><img src="assets/images/ui/logo-white.png" alt="B7Store" /></a>
+            <a class="logo" href="index.html">
+                <img src="assets/images/ui/logo-white.png" alt="B7Store" />
+            </a>
             <ul>
                 <li><a href="produtos.html">Camisetas</a></li>
                 <li><a href="produtos.html">Kits B7Web</a></li>
                 <li><a href="produtos.html">Acessórios</a></li>
                 <li><a href="produtos.html">Eletrônicos</a></li>
             </ul>
+        </div>
+        <div class="footer-contacts">
+            <div class="contacts">
+                <div class="footer-title">Precisa de ajuda?</div>
+                <div class="footer-icons">
+                    <a class="btn-icon-text" href="">
+                        <img src="assets/images/ui/mail-line.png" alt="" />
+                        <span>b7store@email.com</span>
+                    </a>
+                    <a class="btn-icon-text" href="">
+                        <img src="assets/images/ui/phone-line.png" alt="" />
+                        <span>(00) 00000-0000</span>
+                    </a>
+                </div>
+            </div>
+            <div class="social">
+                <div class="footer-title">Acompanhe nas redes sociais</div>
+                <div class="footer-icons">
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/instagram-line.png" alt="" />
+                    </a>
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/linkedin-line.png" alt="" />
+                    </a>
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/facebook-line.png" alt="" />
+                    </a>
+                    <a href="" class="btn-icon">
+                        <img src="assets/images/ui/twitter-x-fill.png" alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="phrase">Se você leu isso aqui, saiba que está no caminho certo!<br />Continue estudando e você chegará lá...</div>
+            <div class="btn-icon">
+                <img src="assets/images/ui/arrow-up-line.png" alt="" />
+            </div>
         </div>
     </footer>
 
